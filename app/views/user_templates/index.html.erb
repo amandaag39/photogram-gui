@@ -1,8 +1,14 @@
-<h1>List of Users</h1>
+<h1>List of users</h1>
 
-<form action="input">
-  
+<form action="/add_user" method="post">
+  <label for="username_field">Username</label>
+  <input id="username_field" type="text" name="username_input" placeholder="Enter a username...">
+
+  <button>
+    Add user
+  </button>
 </form>
+
 <hr>
 
 <table border="1">

@@ -10,7 +10,21 @@
   <dt>Posted</dt>
   <dd><%= @the_photo.created_at %></dd>
   <dt>Edit photo</dt>
-  <dd>INSERT FORM HERE</dd>
+  <dd>
+    <form action="/update_photo/<%= @the_photo.id %>" method="post">
+
+      <label for="browser_image_input">Image</label>
+      <input id="browser_image_input" type="text" name="edit_image_input" value="<%= @the_photo.image %>">
+
+      <label for="browser_image_caption">Caption</label>
+      <textarea name="edit_caption_input" id="browser_image_caption" rows="2"><%= @the_photo.caption %></textarea>
+        
+      <button type="submit">
+        Update photo
+      </button>
+    </form>
+
+  </dd>
   <dt>Delete photo</dt>
   <dd><a href="/delete_photo/<%= @the_photo.id %>">Delete this photo</a></dd>
 </dl>
@@ -33,3 +47,18 @@
 </table>
 
 <h3>Add a new comment</h3>
+
+<form action="/add_comment" method="post">
+  <label for="photo_id_field">Photo ID</label>
+  <input id="photo_id_field" type="text" name="photo_id_input" value="<%= @the_photo.id %>">
+
+  <label for="author_id_field">Author ID</label>
+  <input id="author_id_field" type="text" name="author_id_input" placeholder="Enter your author ID">
+
+  <label for="comment_textarea">Comment</label>
+  <textarea id="comment_textarea" name="comment_input" placeholder="Enter a comment..."></textarea>
+
+  <button>
+    Add comment
+  </button>
+</form>
